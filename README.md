@@ -23,8 +23,6 @@ DSH（DeepSeek Harness）Web UI 插件：在**左侧栏**加一个入口，点�
 
 ## 🖼 界面预览
 
-> 下面两张是**占位图**。
-
 ### 左侧栏入口
 
 ![Usage panel with per-API-key daily tokens and cost](docs/image/sidebar.png)
