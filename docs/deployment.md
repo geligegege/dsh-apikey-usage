@@ -211,6 +211,57 @@ git remote add origin https://github.com/<owner>/dsh-apikey-usage.git
 git push -u origin main
 ```
 
+### 9.1 推送认证
+
+`error: remote origin already exists` 只是重复执行了 `git remote add`，改地址用 `git remote set-url origin <url>` 即可。
+
+`fatal: could not read Username for 'https://github.com'`（或伴随 `failed to execute prompt script`、`WSL ... execvpe(/bin/bash) failed`）说明 **HTTPS 凭据链断了**：本机 `git config --system` 里配了 `credential.helper manager`，但 PATH 上找不到 `git-credential-manager`（MinGit 不捆绑），helper 失败后 git 退化到终端提示，而终端提示又不可用。
+
+**A. SSH（推荐）**
+
+```powershell
+# 1) 本地生成专用密钥（无口令；-N '""' 是 PowerShell 传空口令的写法）
+ssh-keygen -t ed25519 -C "<你的邮箱>" -f "$env:USERPROFILE\.ssh\id_ed25519_github" -N '""'
+
+# 2) 复制公钥，粘到 https://github.com/settings/ssh/new（Key type: Authentication）
+Get-Content "$env:USERPROFILE\.ssh\id_ed25519_github.pub"
+
+# 3) 写 ~/.ssh/config（已有该 Host 块则跳过）
+#    Host github.com
+#        HostName github.com
+#        User git
+#        IdentityFile ~/.ssh/id_ed25519_github
+#        IdentitiesOnly yes
+
+# 4) 验证：应输出 Hi <user>! You've successfully authenticated...
+ssh -T git@github.com
+
+# 5) 远端换成 SSH 并推送
+git remote set-url origin git@github.com:<owner>/dsh-apikey-usage.git
+git push -u origin main
+```
+
+想给私钥加口令：`ssh-keygen -p -f "$env:USERPROFILE\.ssh\id_ed25519_github"`，之后用 ssh-agent 记住（`Start-Service ssh-agent; ssh-add`）。
+
+**B. HTTPS + PAT**
+
+1. GitHub → Settings → Developer settings → Personal access tokens → 生成 fine-grained token，仓库选本仓库，权限 **Contents: Read and write**。
+2. 让 git 记住（明文存 `~/.git-credentials`，注意保管）：
+
+```powershell
+git config --global credential.helper store
+git remote set-url origin https://github.com/<owner>/dsh-apikey-usage.git
+git push -u origin main   # Username 填 GitHub 用户名，Password 填 token（不是账号密码）
+```
+
+3. 或安装带 GCM 的完整 Git（`winget install Git.Git`）后 `git config --global credential.helper manager`。
+
+**C. 仓库还没建 / 推送被拒**
+
+- 私有仓库与"不存在"在 HTTPS 下都会要求认证，无法从报错区分。没建的话：GitHub → New repository → 名字 `dsh-apikey-usage` → **不要**勾 README（本地已有提交）。
+- `! [rejected] ... non-fast-forward`：远端已有提交，先 `git pull --rebase origin main` 再 `git push -u origin main`。
+
+
 发行压缩包（可选）：
 
 ```powershell
