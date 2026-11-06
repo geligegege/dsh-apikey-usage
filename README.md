@@ -32,7 +32,7 @@ DSH（DeepSeek Harness）Web UI 插件：在**左侧栏**加一个入口，点�
 
 ### 用量面板
 
-<img width="1066" height="1011" alt="image" src="https://github.com/user-attachments/assets/696b4da2-49c7-4eb1-9fe0-25288b76d72e" />
+![Usage panel with per-API-key daily tokens and cost](docs/images/panel.png)
 
 
 <details>
