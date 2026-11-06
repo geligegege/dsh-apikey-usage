@@ -1,0 +1,8 @@
+# Normalize text files so Windows checkouts do not add CRLF diff noise.
+* text=auto eol=lf
+
+# Binary assets stay untouched.
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
