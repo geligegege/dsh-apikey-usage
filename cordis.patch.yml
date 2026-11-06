@@ -1,0 +1,3 @@
+- insert:
+    - id: apikey-usage
+      name: 'dsh-apikey-usage'

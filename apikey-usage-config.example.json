@@ -1,0 +1,12 @@
+{
+  "prices": {
+    "deepseek-chat": { "input": 2, "cacheRead": 0.5, "cacheWrite": 0, "output": 8 },
+    "deepseek-reasoner": { "input": 4, "cacheRead": 1, "cacheWrite": 0, "output": 16 },
+    "deepseek-v4.1-flash-1017": { "input": 2, "cacheRead": 0.5, "cacheWrite": 0, "output": 8 }
+  },
+  "keyLabels": {
+    "deepseek-official": "DEEPSEEK_API_KEY",
+    "ksyun": "KSYUN_API_KEY"
+  },
+  "currency": "CNY"
+}

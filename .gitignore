@@ -1,0 +1,17 @@
+# runtime settings written by the plugin panel
+apikey-usage-config.json
+
+# dependencies and tooling
+node_modules/
+.pnpm-store/
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# logs and archives
+*.log
+*.zip
+*.tar.gz

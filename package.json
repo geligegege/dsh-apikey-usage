@@ -1,0 +1,39 @@
+{
+  "name": "dsh-apikey-usage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DSH Web UI plugin: token usage and estimated cost per API key, day by day, in a left-sidebar view.",
+  "license": "MIT",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "plugin",
+    "usage",
+    "tokens",
+    "cost",
+    "api-key"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  }
+}

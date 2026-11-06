@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "API Key Usage",
+    "description": "Shows token usage and estimated cost per API key, day by day, in a left-sidebar view."
+  }
+}
