@@ -23,7 +23,7 @@ DSH（DeepSeek Harness）Web UI 插件：在**左侧栏**加一个入口，点�
 
 ## 🖼 界面预览
 
-> 下面两张是**占位图**。拿到真实截图后，按同名覆盖 `docs/images/sidebar.png`、`docs/images/panel.png` 即可自动显示，**不用改本文档**。拍摄清单与建议尺寸见 [docs/images/README.md](docs/images/README.md)。
+> 下面两张是**占位图**。
 
 ### 左侧栏入口
 
