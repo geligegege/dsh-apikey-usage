@@ -27,11 +27,13 @@ DSH（DeepSeek Harness）Web UI 插件：在**左侧栏**加一个入口，点�
 
 ### 左侧栏入口
 
-<img src="docs/images/sidebar.png" alt="左侧栏入口：插件、日程之后的用量图标" width="180">
+<img width="259" height="298" alt="image" src="https://github.com/user-attachments/assets/34fdd46e-5af7-434b-8a2f-92bae0fa8cb8" />
+
 
 ### 用量面板
 
-![用量面板：按 API Key 的每日 Token 用量与花费](docs/images/panel.png)
+<img width="1066" height="1011" alt="image" src="https://github.com/user-attachments/assets/696b4da2-49c7-4eb1-9fe0-25288b76d72e" />
+
 
 <details>
 <summary>没有截图时，先看文字版布局</summary>
